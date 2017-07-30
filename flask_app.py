@@ -1,6 +1,3 @@
-
-# A very simple Flask Hello World app for you to get started with...
-
 import random #generowanie liczb losowych
 import os #do pracy na katalogach i listach plików
 import hashlib #do szyfrowania plików
@@ -117,7 +114,7 @@ def add_user():
         try:
             user_login = request.form['login']
             user_pass = hashlib.md5(request.form['pass'].encode()).hexdigest()
-            list_users = os.listdir("Users")
+            list_users = os.listdir("Users/")
             if user_login in list_users:
                 return render_template('login.html', tytul='Użytkownik o takim loginie już istnieje, zmień login')
             else:
@@ -134,5 +131,10 @@ def add_user():
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
-    test_txt = 'Print in program'
+    test_txt = os.path.dirname(__file__)
     return test_txt
+
+
+
+if __name__ == "__main__":
+    app.run(debug=True)
