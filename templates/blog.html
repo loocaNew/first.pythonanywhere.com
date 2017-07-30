@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{url_for('static', filename='master.css')}}">
+</head>
+
+<body>
+    <form method="POST">
+        <h1>{{tytul}}</h1>
+        <p>
+            <label>
+                Podaj tytuł:
+                <input type="text" name="title">
+            </label>
+        </p>
+        <p>
+            <label>
+                Wpisz treść:
+                <textarea type="text" name="content">{{tresc}}</textarea>
+            </label>
+        </p>
+        <p>
+            <label>
+                <input type="submit" value="wyślij">
+            </label>
+        </p>
+    </form>
+    <a href="/logout">Logout</a>
+    <p></p>
+    <a href="/bloglist">Lista blogów</a>
+</body>
